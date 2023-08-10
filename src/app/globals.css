@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  cursor: default;
+}
+
+@layer base {
+  body {
+    @apply bg-primaryBackground dark:bg-darkPrimaryBackground font-roboto;
+  }
+}
+
+@layer components {
+  .text {
+    @apply w-[90vw] h-[11vh] flex justify-end items-center uppercase font-michroma opacity-[0.08] font-semibold leading-[-0.5vw] text-textHeadersLarge text-contrastPrimaryColor dark:text-darkContrastPrimaryColor;
+  }
+  .intro-text {
+    @apply opacity-100;
+  }
+}
