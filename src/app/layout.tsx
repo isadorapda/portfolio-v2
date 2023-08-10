@@ -1,8 +1,26 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Roboto, Exo, Michroma } from 'next/font/google'
+import { ThemeProvider } from './theme-provider'
+import { ThemeSwitcher } from '@/components/Navigation/ThemeSwitcher'
+import { NavBar } from '@/components/Navigation/NavBar'
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-roboto',
+})
+
+const exo = Exo({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-exo',
+})
+const michroma = Michroma({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-michroma',
+})
 
 export const metadata: Metadata = {
   title: `Isadora's Portfolio`,
@@ -16,8 +34,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${roboto.variable}  ${exo.variable} ${michroma.variable} `}
+      >
+        <ThemeProvider attribute="class">
+          <NavBar />
+          <main>{children}</main>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
