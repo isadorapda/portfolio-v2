@@ -17,7 +17,7 @@ export const ThemeSwitcher = () => {
 
   return (
     <button
-      className={`flex justify-center items-center transition-all ease-in-out duration-500`}
+      className={`flex justify-center items-center transition-all ease-in-out duration-300`}
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
     >
       {theme === 'light' ? <IconDarkMode /> : <IconLightMode />}
