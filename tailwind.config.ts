@@ -33,6 +33,13 @@ const config: Config = {
         textHeaderSmall: '20px',
         textHeadersLarge: '10vw',
       },
+      lineHeight: {
+        bodyMobile: '26px',
+        headerMobile: '36px',
+      },
+      boxShadow: {
+        primaryShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
+      },
     },
   },
   plugins: [],

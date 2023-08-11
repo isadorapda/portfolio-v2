@@ -6,7 +6,7 @@
   margin: 0;
   box-sizing: border-box;
   padding: 0;
-  cursor: default;
+  /* cursor: default; */
 }
 
 @layer base {
@@ -16,10 +16,37 @@
 }
 
 @layer components {
+  .wrapper {
+    @apply w-screen relative flex overflow-hidden;
+  }
+}
+
+@layer components {
   .text {
-    @apply w-[90vw] h-[11vh] flex justify-end items-center uppercase font-michroma opacity-[0.08] font-semibold leading-[-0.5vw] text-textHeadersLarge text-contrastPrimaryColor dark:text-darkContrastPrimaryColor;
+    @apply w-[90vw] h-[11vw] flex justify-end items-center uppercase font-michroma opacity-[0.08] font-semibold tracking-[-0.5vw] text-textHeadersLarge text-contrastPrimaryColor dark:text-darkContrastPrimaryColor;
   }
   .intro-text {
     @apply opacity-100;
+  }
+}
+
+@layer components {
+  .menu-line {
+    @apply absolute left-0 inline-block h-[2px] w-full rounded-[10px] bg-tertiaryColor;
+  }
+  .page-links {
+    @apply flex justify-end w-[90%] gap-[4vw];
+  }
+}
+
+@layer components {
+  .section-header {
+    @apply absolute right-[50vw] text-[15vw] sm:text-[10vw] translate-x-1/2 lg:translate-x-0 lg:right-[13vw] xl:right-[16vw] top-[10vh] opacity-5 w-max capitalize font-exo;
+  }
+}
+
+@layer components {
+  .paragraph-heading {
+    @apply text-textHeaderSmall lg:text-[1.5vw] py-[3vh] sm:py-0 mb-4 text-tertiaryColor font-exo;
   }
 }

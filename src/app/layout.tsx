@@ -1,12 +1,13 @@
 import './globals.css'
+
+import { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Roboto, Exo, Michroma } from 'next/font/google'
 import { ThemeProvider } from './theme-provider'
-import { ThemeSwitcher } from '@/components/Navigation/ThemeSwitcher'
 import { NavBar } from '@/components/Navigation/NavBar'
 
 const roboto = Roboto({
-  weight: ['400'],
+  weight: ['100', '300', '400', '700'],
   subsets: ['latin'],
   variable: '--font-roboto',
 })
@@ -28,10 +29,12 @@ export const metadata: Metadata = {
     'I am a full-stack software developer based in London. Unleashing Tech Potential for Positive Change | TypeScript, React, Next.js, Node.js Developer | Making a Difference Through Code',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
+export default function RootLayout(props: {
+  children: ReactNode
+  about: ReactNode
+  //   skills: ReactNode
+  //   contacts: ReactNode
+  //   projects: ReactNode
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -40,7 +43,8 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class">
           <NavBar />
-          <main>{children}</main>
+          {props.children}
+          {props.about}
         </ThemeProvider>
       </body>
     </html>
