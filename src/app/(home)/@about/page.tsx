@@ -5,9 +5,10 @@ import Image from 'next/image'
 import { RiArrowDropRightFill as IconArrow } from 'react-icons/ri'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import myPhoto from '../../../public/my-photo.webp'
+import myPhoto from '../../../../public/my-photo.webp'
 import { ABOUT_ME } from '@/constants/contents'
 import { MainContent } from '@/components/About/MainContent'
+import { parallaxSection } from '@/utils/parallaxSection'
 
 export default function AboutMe() {
   const aboutContainer = useRef<HTMLDivElement>(null)
@@ -61,6 +62,9 @@ export default function AboutMe() {
       ScrollTrigger.refresh(true)
     }, aboutContainer)
     return () => ctx.revert()
+  }, [])
+  useEffect(() => {
+    parallaxSection('#about-me', '#skills')
   }, [])
   return (
     <section
