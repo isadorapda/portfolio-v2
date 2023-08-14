@@ -37,6 +37,9 @@
   .page-links {
     @apply flex justify-end w-[90%] gap-[4vw];
   }
+  .page-links-mobile {
+    @apply flex max:flex-col max:fixed max:right-0 max:top-0 max:bg-primaryColor max:dark:bg-darkPrimaryColor max:h-screen w-[70%] md:w-[40%] max:py-[15vh] max:px-[5vw] max:shadow-[-1px_4px_21px_rgba(0,0,0,0.15)];
+  }
 }
 
 @layer components {
@@ -48,5 +51,17 @@
 @layer components {
   .paragraph-heading {
     @apply text-textHeaderSmall lg:text-[1.5vw] py-[3vh] sm:py-0 mb-4 text-tertiaryColor font-exo;
+  }
+  .project {
+    @apply opacity-100;
+  }
+}
+
+@layer components {
+  .contact-info {
+    @apply flex items-center gap-3;
+  }
+  .icon-contact {
+    @apply h-5 w-5;
   }
 }

@@ -34,12 +34,19 @@ const config: Config = {
         textHeadersLarge: '10vw',
       },
       lineHeight: {
+        body: '30px',
         bodyMobile: '26px',
         headerMobile: '36px',
       },
       boxShadow: {
         primaryShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
       },
+      padding: {
+        mobile: '25vh 10vw 10vh',
+      },
+      screens: {
+        'max':{'max':'1023px'}
+      }
     },
   },
   plugins: [],
