@@ -44,7 +44,7 @@
 
 @layer components {
   .section-header {
-    @apply absolute right-[50vw] text-[15vw] sm:text-[10vw] translate-x-1/2 lg:translate-x-0 lg:right-[13vw] xl:right-[16vw] top-[10vh] opacity-5 w-max capitalize font-exo;
+    @apply absolute right-1/2 text-[15vw] sm:text-[10vw] translate-x-1/2 lg:translate-x-0 lg:right-[13vw] xl:right-[16vw] top-[10vh] opacity-30 w-max capitalize font-exo;
   }
 }
 
@@ -54,6 +54,12 @@
   }
   .project {
     @apply opacity-100;
+  }
+  .carousel-button {
+    @apply absolute flex items-center justify-center rounded-full bg-tertiaryColor w-8 h-8 top-1/2 -translate-y-1/2;
+  }
+  .tech-item {
+    @apply rounded-full py-1 px-3 flex flex-wrap gap-2 items-center justify-center  text-[12px];
   }
 }
 

@@ -1,11 +1,11 @@
 'use client'
 
-import { RiArrowDropRightFill as IconArrow } from 'react-icons/ri'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ABOUT_ME } from '@/constants/contents'
+import { ABOUT_ME, techStackSkills } from '@/constants/contents'
 import { useEffect, useRef } from 'react'
 import { parallaxSection } from '@/utils/parallaxSection'
+import { TechSkills } from '@/components/Skills/TechSkills'
 
 export default function SkillsSection() {
   const skillsRef = useRef<HTMLDivElement>(null)
@@ -14,7 +14,7 @@ export default function SkillsSection() {
 
     const ctx = gsap.context(() => {
       const responsiveAnimation = gsap.matchMedia()
-      responsiveAnimation.add('(min-width:768px)', () => {
+      responsiveAnimation.add('(min-width:1024px)', () => {
         gsap.from('.section-header', {
           ease: 'power2.in',
           xPercent: 100,
@@ -23,19 +23,6 @@ export default function SkillsSection() {
             start: 'top bottom-=10%',
             end: 'bottom top+=20%',
             scrub: 1,
-          },
-        })
-        gsap.from('.animate-tech', {
-          y: 50,
-          stagger: 0.3,
-          opacity: 0,
-          duration: 2,
-          scrollTrigger: {
-            trigger: '#tech-skills-grid',
-            start: 'top bottom',
-            end: 'bottom bottom-=28%',
-            scrub: 1,
-            toggleActions: 'play reset play restart',
           },
         })
         gsap.from('#additional-infos', {
@@ -60,26 +47,22 @@ export default function SkillsSection() {
     <section
       id="skills"
       ref={skillsRef}
-      className="wrapper flex-col gap-[8vh] p-mobile lg:py-[10vh] lg:px-[10vw] lg:flex-row justify-center items-center bg-primaryBackground"
+      className="wrapper flex-col gap-[8vh] p-mobile pb-[20vh] lg:pt-[10vh] lg:pb-[15vh] lg:px-[10vw] lg:flex-row justify-center items-center bg-primaryBackground dark:bg-darkPrimaryColor"
     >
       <div
         className="w-screen h-[20vh] absolute left-0 top-0"
         id="trigger-skills"
       />
-      <h1 className="section-header left-[10vw]">skills</h1>
-      <div className="flex flex-col gap-[15vh] pt-[5vh] lg:pt-[25vh] lg:pb-[10vh] w-full lg:w-[60%]">
-        <div
-          id="tech-skills-grid"
-          className="grid grid-cols-[repeat(2,_minmax(auto,_1fr))] auto-rows-auto items-center lg:items-start gap-[2vw]"
-        >
-          {ABOUT_ME.skillsTech.map((tech) => (
-            <h3
-              key={tech}
-              className="text-[17px] leading-body w-full sm:text-textBody lg:text-[1.5vw] font-medium flex items-center text-start font-roboto animate-tech"
-            >
-              {' '}
-              <IconArrow className="text-tertiaryColor" /> {tech}
-            </h3>
+      <h1 className="section-header lg:right-[15vw]">skills</h1>
+
+      <div className="flex flex-col gap-5 pt-[5vh] lg:pt-[20vh] lg:pb-[10vh] w-full lg:w-[50%]">
+        <p>
+          I thrive on crafting dynamic and robust web applications, and my
+          toolkit is finely curated to reflect this passion.
+        </p>
+        <div className="flex flex-col gap-5 w-full ">
+          {techStackSkills.map((skill, index) => (
+            <TechSkills key={`${skill}-${index}`} skillArea={skill} />
           ))}
         </div>
       </div>
@@ -96,6 +79,11 @@ export default function SkillsSection() {
           </h3>
           <p>{ABOUT_ME.skillsTransferable}</p>
         </div>
+      </div>
+      <div className="absolute bottom-10 lg:bottom-20 left-1/2 -translate-x-1/2 w-full lg:w-[40%] px-[10vw]">
+        <button className="flex items-center justify-center w-full px-3 py-2 rounded-md border border-tertiaryColor text-textBody font-exo font-thin hover:font-normal hover:text-tertiaryColor transition-all duration-200 ease-in-out">
+          Download my CV
+        </button>
       </div>
     </section>
   )
