@@ -19,10 +19,12 @@ export default function AboutMe() {
 
     const ctx = gsap.context(() => {
       const responsiveAnimation = gsap.matchMedia()
-      responsiveAnimation.add('(min-width:768px)', () => {
+
+      responsiveAnimation.add('(min-width:1024px)', () => {
         gsap.from('.section-header', {
           ease: 'power2.in',
-          xPercent: -100,
+          xPercent: -150,
+          opacity: 0,
           scrollTrigger: {
             trigger: '#trigger',
             start: 'top bottom-=10%',
@@ -30,6 +32,7 @@ export default function AboutMe() {
             scrub: 1,
           },
         })
+
         gsap.from('#photo', {
           yPercent: 50,
           duration: 1.5,
@@ -63,16 +66,22 @@ export default function AboutMe() {
     }, aboutContainer)
     return () => ctx.revert()
   }, [])
+
   useEffect(() => {
     parallaxSection('#about-me', '#skills')
   }, [])
+
   return (
     <section
       ref={aboutContainer}
       id="about-me"
       className="wrapper flex-col lg:flex-row lg:gap-[5vw] justify-center items-center px-[10vw] lg:px-[6vw] pt-[25vh] lg:pt-[15vh] pb-[10vh] lg:pb-[12vh] bg-secondaryBackground dark:bg-darkSecondaryBackground"
     >
-      <div className="w-screen h-[20vh] absolute left-0 top-0" id="trigger" />
+      <div
+        aria-hidden="true"
+        className="w-screen h-[20vh] absolute left-0 top-0"
+        id="trigger"
+      />
       <h1 className="section-header">about me</h1>
 
       <div
@@ -89,12 +98,13 @@ export default function AboutMe() {
         />
         <div
           id="personal-details"
-          className="w-full flex flex-col text-textBodyMobile lg:text-textBody font-roboto "
+          className="w-full flex flex-col text-textBodyMobile lg:text-textBody"
         >
           {ABOUT_ME.personalInfos.map((info) => (
             <p key={info.label} className="flex items-center lg:opacity-0">
               <IconArrow className="text-tertiaryColor" />
-              <strong className="pr-[0.5vw]">{info.label}</strong> {info.value}
+              <strong className="pr-2 md:pr-[0.5vw]">{info.label}:</strong>
+              {info.value}
             </p>
           ))}
         </div>
