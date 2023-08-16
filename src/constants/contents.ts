@@ -215,7 +215,7 @@ export const SELECTED_PROJECTS: Array<Project> = [
     title: 'Find a Pet - Still Developing',
     description: `A full-stack web app to connect pet seekers with organisations offereng pets for adoption. Organisations can create an account to register their pets for adoption. Pet seekers can search for pets based on their location, pet type, gender, size, and other filters. Users can also access each pet's detailed information and connect to the organisation via WhatsApp to make enquires about the pet.`,
     skills:
-      'Pagination, Node.js, Prisma, Fastify, Zod, Docker, React, React Custom Hooks, React Context, TS, Manipulating data, TailwindCSS, Vite, Vitest, Github Actions, UI/UX, Responsive design',
+      'Pagination, Node.js, Prisma, Fastify, Zod, Docker, React, React Custom Hooks, React Context, TypeScript, Manipulating data, Github Actions, UI/UX, e2e test, unit test, integration test',
     stack: [
       {
         name: 'Vite',
@@ -249,6 +249,10 @@ export const SELECTED_PROJECTS: Array<Project> = [
       {
         name: 'Docker',
         icon: IconDocker,
+      },
+      {
+        name: 'Fastify',
+        icon: IconFastify,
       },
     ],
     image: petAdoption,
@@ -295,7 +299,7 @@ export const SELECTED_PROJECTS: Array<Project> = [
     title: 'Food Recipes',
     description: `Allows users to search for, view, and save recipes. The application includes a database of recipes that can be searched by ingredients, meal type, dietary restrictions, and other parameters. Users can add missing ingredients to a grocery lists. `,
     skills:
-      'React, TS, Tailwind, Vercel, Handling asynchronous requests from public API, Manipulating data, React Custom Hooks, Reusable functions, Responsive design, React Context, React Router, UX',
+      'React, TypeScript, Tailwind, Vercel, Handling asynchronous requests from public API, React Custom Hooks, Responsive design, React Context, React Router',
     stack: [
       {
         name: 'Vite',
@@ -398,7 +402,7 @@ export const OTHER_PROJECTS: Array<Project> = [
     title: 'Weather Forecast',
     description: `A responsive web application which allows users to access current and future weather information for a selected location. User-friendly interface with image elements to make it easy to understand the weather forecast.`,
     skills:
-      'React, TS, Github, Vercel, Vitejs, Handling asynchronous requests from public API, Manipulating data, React Context, Responsive design, UX',
+      'React, TypeScript, Github, Vercel, Handling asynchronous requests from public API, Manipulating data, React Context, Responsive design',
     stack: [
       {
         name: 'Vite',

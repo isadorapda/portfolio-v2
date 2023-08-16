@@ -44,7 +44,7 @@
 
 @layer components {
   .section-header {
-    @apply absolute right-1/2 text-[15vw] sm:text-[10vw] translate-x-1/2 lg:translate-x-0 lg:right-[13vw] xl:right-[16vw] top-[3vh] sm:top-[10vh] opacity-30 w-max capitalize font-exo;
+    @apply absolute right-1/2 text-[15vw] sm:text-[10vw] translate-x-1/2 lg:translate-x-0 lg:right-[13vw] xl:right-[16vw] top-10 lg:top-[10vh] opacity-30 w-max capitalize font-exo;
   }
   .buttons {
     @apply flex items-center justify-center w-full px-3 py-2 rounded-md border border-tertiaryColor text-textBody font-exo font-thin hover:font-normal hover:text-tertiaryColor transition-all duration-200 ease-in-out;
@@ -66,6 +66,9 @@
   }
   .tech-group {
     @apply opacity-100;
+  }
+  .project-link-button {
+    @apply w-6 h-6 rounded-full flex items-center justify-center bg-[#57a74374];
   }
 }
 
