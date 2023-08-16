@@ -38,7 +38,7 @@
     @apply flex justify-end w-[90%] gap-[4vw];
   }
   .page-links-mobile {
-    @apply flex max:flex-col max:fixed max:right-0 max:top-0 max:bg-primaryColor max:dark:bg-darkPrimaryColor max:h-screen w-[70%] md:w-[40%] max:py-[15vh] max:px-[5vw] max:shadow-[-1px_4px_21px_rgba(0,0,0,0.15)];
+    @apply flex max-L:flex-col max-L:fixed max-L:right-0 max-L:top-0 max-L:bg-primaryColor max-L:dark:bg-darkPrimaryColor max-L:h-screen w-[70%] md:w-[40%] max-L:py-[15vh] max-L:px-[5vw] max-L:shadow-[-1px_4px_21px_rgba(0,0,0,0.15)];
   }
 }
 

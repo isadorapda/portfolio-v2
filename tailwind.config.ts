@@ -22,11 +22,11 @@ const config: Config = {
         darkSecondaryBackground: '#313030',
         tertiaryColor: '#57A743',
 
-        90:'rgba(87, 167, 67, 0.90)',
-        70:'rgba(87, 167, 67, 0.70)',
-        50:'rgba(87, 167, 67, 0.50)',
-        30:'rgba(87, 167, 67, 0.30)',
-        10:'rgba(87, 167, 67, 0.10)',
+        90: 'rgba(87, 167, 67, 0.90)',
+        70: 'rgba(87, 167, 67, 0.70)',
+        50: 'rgba(87, 167, 67, 0.50)',
+        30: 'rgba(87, 167, 67, 0.30)',
+        10: 'rgba(87, 167, 67, 0.10)',
       },
       fontFamily: {
         roboto: ['var(--font-roboto)'],
@@ -51,8 +51,9 @@ const config: Config = {
         mobile: '20vh 10vw ',
       },
       screens: {
-        'max':{'max':'1023px'}
-      }
+        'max-L': { max: '1023px' },
+        'max-S': { max: '430px' },
+      },
     },
   },
   plugins: [],
