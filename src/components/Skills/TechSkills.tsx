@@ -7,7 +7,10 @@ interface TechSkillsProps {
 
 export function TechSkills({ skillArea }: TechSkillsProps) {
   return (
-    <div className="flex flex-col  py-2 gap-3 ">
+    <div
+      id="tech-skills-container"
+      className="flex flex-col  py-2 gap-3 tech-group"
+    >
       <h3 className="text-textHeaderSmall font-semibold font-exo">
         {skillArea.header}
       </h3>

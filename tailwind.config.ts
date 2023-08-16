@@ -21,6 +21,12 @@ const config: Config = {
         darkPrimaryBackground: '#383838',
         darkSecondaryBackground: '#313030',
         tertiaryColor: '#57A743',
+
+        90:'rgba(87, 167, 67, 0.90)',
+        70:'rgba(87, 167, 67, 0.70)',
+        50:'rgba(87, 167, 67, 0.50)',
+        30:'rgba(87, 167, 67, 0.30)',
+        10:'rgba(87, 167, 67, 0.10)',
       },
       fontFamily: {
         roboto: ['var(--font-roboto)'],
@@ -42,7 +48,7 @@ const config: Config = {
         primaryShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
       },
       padding: {
-        mobile: '25vh 10vw 10vh',
+        mobile: '20vh 10vw ',
       },
       screens: {
         'max':{'max':'1023px'}

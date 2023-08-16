@@ -1,14 +1,15 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ABOUT_ME, techStackSkills } from '@/constants/contents'
-import { useEffect, useRef } from 'react'
+import { techStackSkills } from '@/constants/contents'
 import { parallaxSection } from '@/utils/parallaxSection'
 import { TechSkills } from '@/components/Skills/TechSkills'
 
 export default function SkillsSection() {
   const skillsRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
@@ -17,11 +18,25 @@ export default function SkillsSection() {
       responsiveAnimation.add('(min-width:1024px)', () => {
         gsap.from('.section-header', {
           ease: 'power2.in',
-          xPercent: 100,
+          xPercent: 150,
+          opacity: 0,
           scrollTrigger: {
             trigger: '#trigger-skills',
             start: 'top bottom-=10%',
-            end: 'bottom top+=20%',
+            end: 'center top+=15%',
+            scrub: 1,
+          },
+        })
+        gsap.from('.tech-group', {
+          stagger: 1,
+          yPercent: 15,
+          opacity: 0,
+          duration: 2,
+          ease: 'back',
+          scrollTrigger: {
+            trigger: '#tech-skills-container',
+            start: 'top bottom-=20%',
+            end: 'bottom bottom-=10%',
             scrub: 1,
           },
         })
@@ -40,6 +55,7 @@ export default function SkillsSection() {
     }, skillsRef)
     return () => ctx.revert()
   }, [])
+
   useEffect(() => {
     parallaxSection('#skills', '#projects')
   }, [])
@@ -47,20 +63,25 @@ export default function SkillsSection() {
     <section
       id="skills"
       ref={skillsRef}
-      className="wrapper flex-col gap-[8vh] p-mobile pb-[20vh] lg:pt-[10vh] lg:pb-[15vh] lg:px-[10vw] lg:flex-row justify-center items-center bg-primaryBackground dark:bg-darkPrimaryColor"
+      className="wrapper flex-col lg:flex-row justify-center items-center gap-[8vh] p-mobile lg:pt-[10vh] lg:pb-[15vh] bg-primaryBackground dark:bg-darkPrimaryColor"
     >
       <div
+        aria-hidden="true"
         className="w-screen h-[20vh] absolute left-0 top-0"
         id="trigger-skills"
       />
       <h1 className="section-header lg:right-[15vw]">skills</h1>
 
-      <div className="flex flex-col gap-5 pt-[5vh] lg:pt-[20vh] lg:pb-[10vh] w-full lg:w-[50%]">
-        <p>
-          I thrive on crafting dynamic and robust web applications, and my
-          toolkit is finely curated to reflect this passion.
+      <div
+        id="tech-skills-container"
+        className="flex flex-col gap-10 md:pt-[7vh] lg:pt-[8vh] lg:pb-[10vh] w-full lg:w-[50%]"
+      >
+        <p className="text-textBody lg:text-textHeaderSmall text-center lg:text-left">
+          I build reusable and maintainable code, excelling in crafting dynamic
+          and robust web applications. My toolkit is finely curated to reflect
+          this passion.
         </p>
-        <div className="flex flex-col gap-5 w-full ">
+        <div className="flex flex-col gap-5 w-full">
           {techStackSkills.map((skill, index) => (
             <TechSkills key={`${skill}-${index}`} skillArea={skill} />
           ))}
@@ -72,18 +93,37 @@ export default function SkillsSection() {
       >
         <div
           id="beyond-tech"
-          className="w-full text-textBodyMobile leading-bodyMobile font-roboto lg:leading-body lg:text-textBody text-contrastPrimaryColor dark:text-darkContrastPrimaryColor"
+          className="w-full text-textBodyMobile text-justify lg:text-left leading-bodyMobile lg:leading-body lg:text-textBody"
         >
-          <h3 className="mb-3 font-semibold font-michroma text-textHeaderSmall lg:text-[1.5vw]">
+          <h3 className="mb-3 font-semibold font-exo text-textHeaderSmall">
             Beyond Tech...
           </h3>
-          <p>{ABOUT_ME.skillsTransferable}</p>
+          <p className="mb-2">
+            One of the greatest advantages of transitioning to a new career is
+            the array of <strong>transferable skills</strong> I bring. These
+            include excellent
+            <strong>
+              {' '}
+              interpersonal communication, creative problem-solving, analytical
+              thinking, and strong time-management abilities.
+            </strong>{' '}
+            I am confident that harnessing these skills will elevate my
+            effectiveness as a developer.
+          </p>
+          <p>
+            My diverse experiences allow me to{' '}
+            <strong>
+              approach challenges from unique angles, bringing a fresh
+              perspective.
+            </strong>{' '}
+            I am constantly pushing myself to learn more and expand my digital
+            toolset and thrive in environments that foster high standards and
+            prioritise quality outcomes.
+          </p>
         </div>
       </div>
       <div className="absolute bottom-10 lg:bottom-20 left-1/2 -translate-x-1/2 w-full lg:w-[40%] px-[10vw]">
-        <button className="flex items-center justify-center w-full px-3 py-2 rounded-md border border-tertiaryColor text-textBody font-exo font-thin hover:font-normal hover:text-tertiaryColor transition-all duration-200 ease-in-out">
-          Download my CV
-        </button>
+        <button className="buttons">Download my CV</button>
       </div>
     </section>
   )

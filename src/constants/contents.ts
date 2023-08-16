@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from 'uuid'
-
 import {
   SiTypescript as IconTS,
   SiTailwindcss as IconTailwind,
@@ -24,7 +23,9 @@ import {
   SiGit as IconGit,
   SiJest as IconJest,
   SiTestinglibrary as IconTestinglibrary,
+  SiFigma as IconFigma,
 } from 'react-icons/si'
+import { RiVipDiamondFill as IconZod } from 'react-icons/ri'
 import { TbBrandVite as IconVite } from 'react-icons/tb'
 import { IconType } from 'react-icons'
 import recipesProject from '../../public/projects/recipesWebApp.webp'
@@ -37,6 +38,7 @@ import dashboard from '../../public/projects/dashboard.webp'
 import dashboardUsers from '../../public/projects/dashboard-users.webp'
 import dashboardAddUser from '../../public/projects/dashboard-add-user.webp'
 import { StaticImageData } from 'next/image'
+import { Variant } from '@/components/Skills/TechItem'
 
 export const ABOUT_ME = {
   professionHeadline: `Full-stack developer`,
@@ -48,23 +50,6 @@ export const ABOUT_ME = {
     heading: 'Who I was and why I changed',
     paragraphContent: `I hold a BSc degree in Dietetics and an MSc degree in Public Health. While I enjoyed helping others with their health and wellness goals, I found that the work didn't fully challenge me. I soon realised that pursuing additional courses to supplement the lack of challenges in my career as a dietitian was only a short-term solution. It was time for me to explore new avenues of helping people and making a difference. Whether it involves creating user-friendly applications, contributing to open-source projects, or using technology to address global challenges. I am ready to embark on this journey with enthusiasm and commitment.`,
   },
-  skillsTech: [
-    'React/ Next.js',
-    'TypeScript',
-    'JavaScript',
-    'Node.js',
-    'Prisma',
-    'Zod',
-    'Fastify',
-    'React Query',
-    'TailwindCSS',
-    'CSS',
-    'Styled-components',
-    'Responsive Design',
-    'unit/ e2e/ integration testing',
-  ],
-  currentLearning: ['Next.js', 'Fastify', 'Zod'],
-  skillsTransferable: `A great advantage of changing careers is the set of  transferable skills. In my context, these include excellent interpersonal communication, creativity in problem-solving, analytical thinking, and strong time-management abilities. I believe that these skills will help me to become a more effective and well-rounded developer.I am constantly pushing myself to learn more and expand my digital toolset, and thrive within environments which encourage high standards and quality output.`,
   contacts: {
     mobile: '+44 7306560444',
     emailAddress: 'isadorapda@gmail.com',
@@ -83,124 +68,134 @@ export const ABOUT_ME = {
 export interface Stack {
   name: string
   icon: IconType
-  level?:string
 }
-
+export interface StackLevel extends Stack {
+  level: Variant
+}
 export interface TechStackSkill {
- header: string
- tech: Array<Stack>
+  header: string
+  tech: Array<StackLevel>
 }
 
-export const techStackSkills:Array<TechStackSkill> = [
-  
-  {  
-    header:'Languages',
+export const techStackSkills: Array<TechStackSkill> = [
+  {
+    header: 'Languages',
     tech: [
       {
         name: 'TypeScript',
         icon: IconTS,
-        level:'90'
+        level: Variant.A,
       },
       {
         name: 'JavaScript',
         icon: IconJS,
-        level:'70'
+        level: Variant.B,
       },
-    ]},
- 
-  
-   {
-    header:'Frontend Frameworks and Libraries',
+    ],
+  },
+  {
+    header: 'Frontend Frameworks and Libraries',
     tech: [
       {
         name: 'React.js',
         icon: IconReact,
-         level:'90'
-      },
-      {
-        name: 'Next.js',
-        icon: IconNext,
-         level:'40'
+        level: Variant.A,
       },
       {
         name: 'Styled-components',
         icon: IconStyledComp,
-         level:'90'
+        level: Variant.A,
       },
       {
         name: 'Tailwind',
         icon: IconTailwind,
-         level:'90'
+        level: Variant.A,
       },
       {
-        name: 'Sass',
-        icon: IconSass,
-         level:'90'
+        name: 'Next.js',
+        icon: IconNext,
+        level: Variant.C,
       },
       {
         name: 'Chakra ui',
         icon: IconChakra,
-         level:'40'
-      },
-    ]},
-
-    {
-        header:'Backend Frameworks and Libraries',
-        tech: [
-      {
-        name: 'Node.js',
-        icon: IconNode,
-        level:'55'
-      },
-      {
-        name: 'Prisma',
-        icon: IconPrisma,
-        level:'55'
-      },
-      {
-        name: 'Fastify',
-        icon: IconFastify,
-        level:'55'
-      },
-   
-    ]},
-
-   {
-    header:'Others',
-    tech: [
-      {
-        name: 'Webpack',
-        icon: IconWbpack,
-        level:'70'
+        level: Variant.D,
       },
       {
         name: 'React Query',
         icon: IconReactquery,
-        level:'40'
-      },
-      {
-        name: 'Git',
-        icon: IconGit,
-        level:'90'
-      },
-      {
-        name: 'Vitest',
-        icon: IconVitest,
-        level:'70'
-      },
-      {
-        name: 'Jest',
-        icon: IconJest,
-        level:'30'
+        level: Variant.D,
       },
       {
         name: 'React Testing Library',
         icon: IconTestinglibrary,
-        level:'30'
+        level: Variant.E,
       },
-   
-    ],}
-  
+    ],
+  },
+
+  {
+    header: 'Backend Frameworks and Libraries',
+    tech: [
+      {
+        name: 'Node.js',
+        icon: IconNode,
+        level: Variant.C,
+      },
+      {
+        name: 'Prisma',
+        icon: IconPrisma,
+        level: Variant.C,
+      },
+      {
+        name: 'Fastify',
+        icon: IconFastify,
+        level: Variant.C,
+      },
+    ],
+  },
+
+  {
+    header: 'Others',
+    tech: [
+      {
+        name: 'Zod',
+        icon: IconZod,
+        level: Variant.A,
+      },
+      {
+        name: 'Git',
+        icon: IconGit,
+        level: Variant.A,
+      },
+      {
+        name: 'Sass',
+        icon: IconSass,
+        level: Variant.A,
+      },
+      {
+        name: 'Webpack',
+        icon: IconWbpack,
+        level: Variant.B,
+      },
+
+      {
+        name: 'Vitest',
+        icon: IconVitest,
+        level: Variant.B,
+      },
+      {
+        name: 'Figma',
+        icon: IconFigma,
+        level: Variant.C,
+      },
+      {
+        name: 'Jest',
+        icon: IconJest,
+        level: Variant.E,
+      },
+    ],
+  },
 ]
 export interface Project {
   id: string

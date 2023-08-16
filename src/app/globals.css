@@ -11,7 +11,7 @@
 
 @layer base {
   body {
-    @apply bg-primaryBackground dark:bg-darkPrimaryBackground font-roboto;
+    @apply bg-primaryBackground dark:bg-darkPrimaryBackground font-roboto text-contrastPrimaryColor dark:text-darkContrastPrimaryColor;
   }
 }
 
@@ -44,7 +44,10 @@
 
 @layer components {
   .section-header {
-    @apply absolute right-1/2 text-[15vw] sm:text-[10vw] translate-x-1/2 lg:translate-x-0 lg:right-[13vw] xl:right-[16vw] top-[10vh] opacity-30 w-max capitalize font-exo;
+    @apply absolute right-1/2 text-[15vw] sm:text-[10vw] translate-x-1/2 lg:translate-x-0 lg:right-[13vw] xl:right-[16vw] top-[3vh] sm:top-[10vh] opacity-30 w-max capitalize font-exo;
+  }
+  .buttons {
+    @apply flex items-center justify-center w-full px-3 py-2 rounded-md border border-tertiaryColor text-textBody font-exo font-thin hover:font-normal hover:text-tertiaryColor transition-all duration-200 ease-in-out;
   }
 }
 
@@ -60,6 +63,9 @@
   }
   .tech-item {
     @apply rounded-full py-1 px-3 flex flex-wrap gap-2 items-center justify-center  text-[12px];
+  }
+  .tech-group {
+    @apply opacity-100;
   }
 }
 
