@@ -52,8 +52,8 @@ export function NavBar() {
       <div
         className={`page-links-mobile lg:page-links ${
           isMenuOpen
-            ? 'max:flex max:justify-start max:items-end max:gap-[5vh] '
-            : 'max:hidden'
+            ? 'max-L:flex max-L:justify-start max-L:items-end max-L:gap-[5vh] '
+            : 'max-L:hidden'
         } `}
       >
         <NavigationLinks setIsMenuOpen={setIsMenuOpen} />
@@ -70,7 +70,7 @@ export function NavBar() {
       </button>
 
       <div
-        className={`max:absolute max:top-[12vh] max:right-0 pr-[8vw] md:pr-[6vw] ${
+        className={`max-L:absolute max-L:top-[12vh] max-L:right-0 pr-[8vw] md:pr-[6vw] ${
           isMenuOpen ? 'hidden' : 'flex'
         }  h-auto xl:flex xl:justify-center xl:items-center xl:h-full lg:pl-[4vw] lg:pr-0 cursor-pointer`}
       >
